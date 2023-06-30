@@ -1,0 +1,56 @@
+
+
+
+<center>
+
+<span id="utepe">patika.dev!</span><br><br>
+<span id="utepea">Merhaba </span><span id="utepeisim">Emre</span><span id="utepehg"> hoşgeldin!</span><br><br>
+<span id="tarih">tarih</span><br><br>
+<span id="tarihmesaj">Patika.dev JS 1. Bölüm Ödevi</span><br>
+
+</center>
+
+<script>
+
+    function tarihfonk(){
+
+        let tarih = new Date();
+        let gun = "";
+
+        if (tarih.getDay() == 1){
+            gun = "Pazartesi"
+        } else if (tarih.getDay() ==2){
+            gun = "Salı"
+        } else if (tarih.getDay() ==3){
+            gun = "Çarşamba"
+        } else if (tarih.getDay() ==4){
+            gun = "Perşembe"
+        } else if (tarih.getDay() ==5){
+            gun = "Cuma"
+        } else if (tarih.getDay() ==6){
+            gun = "Cumartesi"
+        } else if (tarih.getDay() ==7){
+            gun = "Pazar"
+        }
+
+
+
+
+        let yazdir = tarih.getHours() + ":" + tarih.getMinutes() + ":" + tarih.getSeconds() + " - " + gun
+
+
+        tarih_html.innerHTML = yazdir;
+
+
+    }
+
+    setInterval(tarihfonk, 1000)
+    let isim = prompt("Adınız nedir?");
+
+    let isim_html = document.querySelector("#utepeisim")
+
+    isim_html.innerHTML = isim;
+
+    let tarih_html = document.querySelector("#tarih")
+
+</script>
