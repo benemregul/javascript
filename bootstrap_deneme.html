@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<br>
+<form class="form-inline">
+    
+    <div class="form-group mx-sm-3 mb-2">
+    <label for="gorevyazi" class="sr-only">Görev</label>
+    <input type="text" class="form-control" id="gorev">
+    </div>
+    <button type="button" class="btn btn-primary mb-2" onclick="gorevCalistir()">Görev Ekle</button>
+</form>
+
+<br><br>
+
+<ul class="list-group">
+
+</ul>
+
+
+<script>
+
+setInterval(kontrol, 1000)
+
+function kontrol(){
+    for (let i = 0; i < document.querySelectorAll(".btn-secondary").length; i++) {  
+        document.querySelectorAll(".btn-secondary")[i].addEventListener("click", function() {
+            const li1Element = this.parentElement; // Butonun üst öğesini seç (li)
+            li1Element.remove(); // Seçilen öğeyi sil
+         });
+    }
+}
+
+
+function gorevCalistir(){
+
+
+    let sira = document.querySelectorAll("li").length + 1
+
+    let ulElement = document.querySelector(".list-group");
+
+    const liElement = document.createElement("li");
+    liElement.id = `li${sira}`
+    liElement.className = "list-group-item";
+    liElement.textContent = document.getElementById("gorev").value
+
+    const chElement = document.createElement("button")
+    chElement.id = sira
+    chElement.className = "btn-secondary";
+    chElement.innerText = "Sil"
+
+
+    ulElement.appendChild(liElement);
+    liElement.appendChild(chElement);
+
+
+}
+
+</script>
